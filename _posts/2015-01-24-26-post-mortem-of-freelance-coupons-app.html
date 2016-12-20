@@ -1,0 +1,51 @@
+---
+layout: post
+title: 'Post Mortem: Android Discount Coupons App'
+date: 2015-01-24 20:58:12.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- Programming
+tags:
+- android
+- android studio
+- freelance
+meta:
+  _edit_last: '38359561'
+  geo_public: '0'
+  _publicize_job_id: '10910809435'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<h4><strong>What went wrong:</strong></h4>
+<ol>
+<li><strong>Overcommitting</strong> - I said I can finish the app in a week(end). I actually did it in a month because laziness.</li>
+<li><strong>Legacy code</strong> - I could have done a better job if I just trashed the base code they gave me. Lots of leaks (static Context reference, anyone?) and bad practices on that one. (They had a getter that allowed you to mutate the collection. Migraine!)</li>
+<li><b>Rusty Old Me </b>- Android is evolving really fast, and well, I basically have to strut my stuff to catch up.</li>
+<li><strong>Much server calls</strong> - The legacy app was designed such that it gets server data every time the user selects a menu item. Could have just mirrored it app-side.</li>
+<li><strong>Slow internet</strong> - Sometimes I couldn't send the builds on time because the 4G internet wanted to be HSDPA just to piss me off. Google Drive saved me.</li>
+<li><strong>Lack of communication</strong> - They don't reply as often as I'd like them to.</li>
+</ol>
+<h4><strong>What went right:</strong></h4>
+<ol>
+<li><strong>Better</strong> - Well, the app turned out better than the legacy app. Did I mention that app was 2014? #Learn2Code.</li>
+<li><strong>Redesigned</strong> - At least they agreed to let me design <del>the app my way</del> some aspects of the app. The old one was iOS-looking! Eugh!</li>
+<li><strong>Practice</strong> - I got to brush up on Android and git, which is nice!</li>
+<li><strong>They liked it!</strong> - The customer said I (we!) was a "star" dev. Their words, not mine. And they want me on board for another project! *Happy dance*</li>
+</ol>
+<h4><strong>What I learned </strong>(Basically Jake Wharton):</h4>
+<ol>
+<li><strong>Otto!</strong> - Otto allowed me to just get on with the coding and not worry about threading shiz.</li>
+<li><strong>Animations</strong> - (Actually I didn't? LOL. Patrick did this part, but I read up on it after the "release*".)</li>
+<li><strong>OkHttp</strong> - Took much REST headache out of my hands.</li>
+<li><strong>Memory Analyzer Tool</strong> - I've used this before, but now I can use it with Android Studio.</li>
+<li><strong>Google Stuff</strong> - Maps, Analytics, AdView</li>
+<li><strong>Android Studio</strong> - We used AS for the project, so I learned some commonly used shortcuts and how to not be intimidated by Gradle/Project Settings.</li>
+<li><strong>Schedule</strong> - To keep your customer informed, you have to have a regular schedule for builds. A daily one worked for me, even though I don't think they tested every one I sent.</li>
+</ol>

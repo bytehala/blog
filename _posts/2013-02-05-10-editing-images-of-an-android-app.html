@@ -1,0 +1,48 @@
+---
+layout: post
+title: Hacking Images of An Android App from APK Using APK-MultiTool
+date: 2013-02-05 20:37:06.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- Android Cracking
+- Tools
+tags:
+- apk
+- apkmultitool
+- customization
+- icon
+- image
+meta:
+  _edit_last: '38359561'
+  tagazine-media: a:7:{s:7:"primary";s:70:"http://noobgrammer.files.wordpress.com/2013/01/2013-01-28-20-39-18.png";s:6:"images";a:3:{s:86:"http://noobgrammer.files.wordpress.com/2013/01/smart-app-protector-app-lock-2660-5.jpg";a:6:{s:8:"file_url";s:86:"http://noobgrammer.files.wordpress.com/2013/01/smart-app-protector-app-lock-2660-5.jpg";s:5:"width";i:307;s:6:"height";i:512;s:4:"type";s:5:"image";s:4:"area";i:157184;s:9:"file_path";b:0;}s:70:"http://noobgrammer.files.wordpress.com/2013/01/2013-01-28-20-39-18.png";a:6:{s:8:"file_url";s:70:"http://noobgrammer.files.wordpress.com/2013/01/2013-01-28-20-39-18.png";s:5:"width";i:480;s:6:"height";i:800;s:4:"type";s:5:"image";s:4:"area";i:384000;s:9:"file_path";b:0;}s:67:"http://noobgrammer.files.wordpress.com/2013/01/screenclip000001.jpg";a:6:{s:8:"file_url";s:67:"http://noobgrammer.files.wordpress.com/2013/01/screenclip000001.jpg";s:5:"width";i:687;s:6:"height";i:228;s:4:"type";s:5:"image";s:4:"area";i:156636;s:9:"file_path";b:0;}}s:6:"videos";a:0:{}s:11:"image_count";i:3;s:6:"author";s:8:"38359561";s:7:"blog_id";s:8:"38927658";s:9:"mod_stamp";s:19:"2013-01-28
+    13:11:11";}
+  _publicize_job_id: '15436634566'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>This is not about changing the icons, most launchers can do that, although you can also do that using this technique.</p>
+<p>What this is about, is changing the images INSIDE of an android app, including the ones it puts on your notification bar. Like a boss.</p>
+<p>I installed Smart App Protector on my phone, which is running Zeus ROM 7. It starts a service that leaves fugly icon of a padlock on your notification bar. It did not look good with Zeus's snazzy icons*:</p>
+<p>[caption id="attachment_72" align="aligncenter" width="307"]<a href="http://noobgrammer.files.wordpress.com/2013/01/smart-app-protector-app-lock-2660-5.jpg"><img class="size-full wp-image-72" src="{{ site.baseurl }}/assets/smart-app-protector-app-lock-2660-5.jpg" alt="Upper right. I know." width="307" height="512" /></a> Upper left. I know.[/caption]</p>
+<p>*Screenshot is not Zeus. The image is only to show the ugly icon. heh</p>
+<p>So I replaced the image using APK MultiTool and my awesome artistic talents! Here's the result*:</p>
+<p>[caption id="attachment_73" align="aligncenter" width="269"]<a href="http://noobgrammer.files.wordpress.com/2013/01/2013-01-28-20-39-18.png"><img class=" wp-image-73  " src="{{ site.baseurl }}/assets/2013-01-28-20-39-18.png" alt="Blue padlock! What sorcery is this?!" width="269" height="448" /></a> Blue padlock! What sorcery is this?![/caption]</p>
+<p>*Actual Zeus ROM from my actual phone.</p>
+<p>HOW TO DO IT?</p>
+<p>1) <a href="http://noobgrammer.wordpress.com/2012/11/23/where-does-my-installed-android-applications-apk-file-go/">Get the APK.</a></p>
+<p>2) Send the APK to your PC's &lt;apkmultitooldirectory&gt;/place-apk-here-for-modding</p>
+<p>3) Run &lt;apkmultitooldirectory&gt;/Script.bat, press a key, and you'll find yourself here:</p>
+<p>[caption id="attachment_74" align="aligncenter" width="687"]<a href="http://noobgrammer.files.wordpress.com/2013/01/screenclip000001.jpg"><img class="size-full wp-image-74" src="{{ site.baseurl }}/assets/screenclip000001.jpg" alt="Which one was for simple tasks such as image editing again?" width="687" height="228" /></a> Which one was for simple tasks such as image editing again?[/caption]</p>
+<p>4) Choose 24 - Set current project. You will be prompted to pick a .apk file that you want to edit. After that you can now do 1 - Extract apk.</p>
+<p>5) The apk gets extracted to &lt;apkmultitooldirectory&gt;/projects/</p>
+<p>6) Find the image you don't like, replace it with an image you like. Good example: blue_padlock.jpg Bad example: boobs.png</p>
+<p>7) Go back to the multitool and select 3 - Zip apk, then 4 - Sign apk. The new and improved apk is now in &lt;apkmultitooldirectory&gt;/projects/place-apk-here-for-modding/signed_&lt;apk_name&gt;.apk</p>
+<p>DONE!</p>
+<p>It's not as hard as I probably make it look, you should try it for yourself! Of course, if your phone/tablet is connected to your PC, it can probably take less steps (See option 7 on the screenshot), but you get the idea.</p>

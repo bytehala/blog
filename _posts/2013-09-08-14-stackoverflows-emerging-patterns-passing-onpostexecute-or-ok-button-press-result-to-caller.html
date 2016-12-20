@@ -1,0 +1,66 @@
+---
+layout: post
+title: 'StackOverflows: Emerging Patterns - Passing onPostExecute or OK Button Press
+  result to caller'
+date: 2013-09-08 19:06:11.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- Programming
+tags:
+- android
+- HowTo
+- java
+- stackoverflow
+meta:
+  _edit_last: '38359561'
+  tagazine-media: a:7:{s:7:"primary";s:0:"";s:6:"images";a:0:{}s:6:"videos";a:0:{}s:11:"image_count";i:0;s:6:"author";s:8:"38359561";s:7:"blog_id";s:8:"38927658";s:9:"mod_stamp";s:19:"2013-09-08
+    11:07:33";}
+  _publicize_job_id: '15436616807'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>Just a quickie for some patterns I've observed and will possibly use much in my Android development career/hobby/life.</p>
+<p><strong>onPostExecute</strong></p>
+<p>If your onPostExecute is an inner class in your Activity, it's this simple:</p>
+<blockquote>
+<pre>
+class MyActivity extends Activity {
+    
+    function runOnPostExecute(Output output) {
+        // something...
+    }
+
+    class Async extends AsyncTask&lt;Input, Progress, Output&gt; {
+        // other stuff...
+        onPostExecute(Output output) {
+            runOnPostExecute(output);
+        }
+    }
+}
+</pre>
+</blockquote>
+<p>If the AsyncTask subclass is not inside the Activity, you will have to pass a reference of the Activity into the AsyncTask just so you can call the runOnPostExecute function. Be careful when doing this, as you might leak some references.</p>
+<p><strong>on OK clicked</strong></p>
+<p>From a DialogFragment's onClick() method, you can also pass some result, or even just the fact that something happened to its parent Activity.</p>
+<blockquote>
+<pre>
+class MyDialogFragment extends DialogFragment {
+    
+    // other stuff...
+    
+    function onClick(DialogInterface dialog, int which) {
+        // check which button was clicked and then...
+        ((MyActivity) getActivity()).doPositiveClick(Object someResult);
+    }
+}
+</pre>
+</blockquote>
+<p>doPositiveClick() is a programmer-defined function in MainActivity. As you can see, the DialogFragment doesn't have to be an inner class of your activity. Fragments have a reference to the Activity through getActivity(), so you wouldn't have to worry about leaks as long as you're not leaking this Fragment itself.</p>
+<p><a href="http://stackoverflow.com/questions/9909765/how-to-pass-the-result-of-asynctask-onpostexecute-method-into-the-parent-activit">Some reference, just so it's a valid SO.</a> I've seen a lot of those SOs, but I'm lazy.</p>

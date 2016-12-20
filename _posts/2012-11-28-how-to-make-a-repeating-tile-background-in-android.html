@@ -1,0 +1,41 @@
+---
+layout: post
+title: How To Make A Repeating Tile Background In Android
+date: 2012-11-28 19:59:08.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- Programming
+tags:
+- background
+- how to
+- image
+- tiles
+meta:
+  _edit_last: '38359561'
+  tagazine-media: a:7:{s:7:"primary";s:63:"http://noobgrammer.files.wordpress.com/2012/11/before_after.jpg";s:6:"images";a:2:{s:63:"http://noobgrammer.files.wordpress.com/2012/11/before_after.jpg";a:6:{s:8:"file_url";s:63:"http://noobgrammer.files.wordpress.com/2012/11/before_after.jpg";s:5:"width";i:542;s:6:"height";i:398;s:4:"type";s:5:"image";s:4:"area";i:215716;s:9:"file_path";b:0;}s:64:"http://noobgrammer.files.wordpress.com/2012/11/before_after2.jpg";a:6:{s:8:"file_url";s:64:"http://noobgrammer.files.wordpress.com/2012/11/before_after2.jpg";s:5:"width";i:542;s:6:"height";i:398;s:4:"type";s:5:"image";s:4:"area";i:215716;s:9:"file_path";b:0;}}s:6:"videos";a:0:{}s:11:"image_count";i:2;s:6:"author";s:8:"38359561";s:7:"blog_id";s:8:"38927658";s:9:"mod_stamp";s:19:"2012-11-28
+    12:01:56";}
+  _publicize_job_id: '15436646806'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>I have to make this post because as evidenced by this <a href="http://stackoverflow.com/questions/2706913/how-to-make-android-apps-background-image-repeat">stackoverflow</a>, people chose to do it the hard way. And yes, I'm calling questions on stackoverflow "stackoverflows".</p>
+<p>Step 1: Have your base tile in your res/drawable folder. It should be seamlessly tileable if you want it to look good.</p>
+<p>Step 2: Create an xml file in your res/drawable folder. Name it whateveryouwant.xml.</p>
+<p>Step 3: Paste this into whateveryouwant.xml:</p>
+<blockquote><p>&lt;bitmap<br />
+xmlns:android="http://schemas.android.com/apk/res/android"<br />
+android:src="@drawable/base_tile"<br />
+android:tileMode="repeat"<br />
+android:dither="true" /&gt;</p></blockquote>
+<p>Note that android:src's value doesn't include the extension of the base tile. It works as long as your base tile is a supported image file type.</p>
+<p>[caption id="attachment_55" align="aligncenter" width="542"]<a href="http://noobgrammer.files.wordpress.com/2012/11/before_after.jpg"><img class="size-full wp-image-55" title="before_after" alt="" src="{{ site.baseurl }}/assets/before_after.jpg" height="398" width="542" /></a> VIOLA!!![/caption]</p>
+<p>LOL the pic doesn't get my point across, but what Android does if you set a background image is it stretch-to-fits it. So if I used a very small tile, it would look really ugly. In this case, I used a pretty wide tile that still looks great even if it's stretched vertically so there's almost no difference. I'm still gonna use it to illustrate because TROLOLO! ... Well, okay, here's the real less visually appealing illustration. Do not use these kinds of images for tiled backgrounds. Ugly! Ugly! haha</p>
+<p>[caption id="attachment_56" align="aligncenter" width="542"]<a href="http://noobgrammer.files.wordpress.com/2012/11/before_after2.jpg"><img class="size-full wp-image-56" title="before_after2" alt="" src="{{ site.baseurl }}/assets/before_after2.jpg" height="398" width="542" /></a> ANOTHER VIOLA!!![/caption]</p>
+<p>&nbsp;</p>
