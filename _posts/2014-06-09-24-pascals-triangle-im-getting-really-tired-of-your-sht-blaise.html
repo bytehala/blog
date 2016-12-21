@@ -1,0 +1,81 @@
+---
+layout: post
+title: 'Pascal''s Triangle:  I''m Getting Really Tired of Your Sh*t, Blaise'
+date: 2014-06-09 22:11:02.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Programming
+tags:
+- Coursera
+- Scala
+meta:
+  _edit_last: '38359561'
+  geo_public: '0'
+  _publicize_job_id: '15436558241'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>I'm trying to learn Scala through Coursera, because a lot (actually just a couple) of Googlers are saying that it's the improved version of Java. Also, lambda expressions have been released in Java 8, and Guava has a functional paradigm that you can use pre-Java 8.</p>
+<p>Anyway, the first homework has a Pascal's triangle problem - Given a row and a column, what is the number in that exact spot in Pascal's triangle?</p>
+<p>[caption id="attachment_278" align="aligncenter" width="245"]<a href="http://noobgrammer.files.wordpress.com/2014/05/pascal.jpg"><img class="size-full wp-image-278" src="{{ site.baseurl }}/assets/pascal.jpg" alt="He was on an acid trip when he came up with this." width="245" height="205" /></a> He was on an acid trip when he came up with this.[/caption]</p>
+<p>Given 4,1 the output should be 4.</p>
+<p>Given 7, 4 the output should be 35.</p>
+<p>etc etc.</p>
+<p><strong>Solving it</strong></p>
+<p>The first impulse for a programmer would be to generate the whole series until we get to the point specified in the function call. Oh, I forgot to mention that the constraints was that you have to solve this recursively, which serves more as a clue than a constraint, really.</p>
+<p>I gotta admit, I cheated because I really don't get how you could make a Pascal's triangle without storing all those numbers in an array. I came across this website which has a solution in C. Apparently you can solve this problem using factorials, and that's where the recursion comes in (you can choose to solve factorials iteratively, but then you'd be violating the constraint/clue). In my defense, I think only a fraction of programmers would figure out the factorial pattern on their own. This, I think is the advantage of Math majors over Computer Science majors in puzzle problems.</p>
+<p>The C code looks like this:</p>
+<p>[code language="cpp"]<br />
+#include &lt;stdio.h&gt;</p>
+<p>long factorial(int);</p>
+<p>int main()<br />
+{<br />
+ int i, n, c;</p>
+<p> printf(&quot;Enter the number of rows you wish to see in pascal triangle\n&quot;);<br />
+ scanf(&quot;%d&quot;,&amp;n);</p>
+<p> for ( i = 0 ; i &lt; n ; i++ )<br />
+ {<br />
+ for ( c = 0 ; c &lt;= ( n - i - 2 ) ; c++ )<br />
+ printf(&quot; &quot;);</p>
+<p> for( c = 0 ; c &lt;= i ; c++ )<br />
+ printf(&quot;%ld &quot;,factorial(i)/(factorial(c)*factorial(i-c)));</p>
+<p> printf(&quot;\n&quot;);<br />
+ }</p>
+<p> return 0;<br />
+}</p>
+<p>long factorial(int n)<br />
+{<br />
+ int c;<br />
+ long result = 1;</p>
+<p> for( c = 1 ; c &lt;= n ; c++ )<br />
+ result = result*c;</p>
+<p> return ( result );<br />
+}<br />
+[/code]</p>
+<p>Of course I needed to turn it into Scala code, which I barely know anything about, but here's what I came up with:</p>
+<p>[code language="scala"]<br />
+def pascal(c: Int, r: Int): Int = {<br />
+     @tailrec<br />
+     def factorial(num: Int, mult: Int): Int = {<br />
+         if (mult &lt;= 1)              if (num &gt; 0) num else 1<br />
+         else {<br />
+             factorial(num * mult, mult - 1)<br />
+         }<br />
+     }</p>
+<p>     factorial(r, r - 1) / (factorial(c, c - 1) * factorial(r - c, r - c - 1))<br />
+ }<br />
+[/code]</p>
+<p><strong>Things I learned:</strong></p>
+<p>Since I cheated on the solution already, I think I'm at a loss if I didn't learn anything, so at least I learned that</p>
+<ul>
+<li>You can solve for a Pascal's Triangle element by using factorial.</li>
+<li>You can also solve for it using <a href="http://en.wikipedia.org/wiki/Pascal's_triangle#Calculating_a_row_or_diagonal_by_itself">this approach</a></li>
+<li>You can use @tailrec tag to make sure you are doing Scala recursion right</li>
+<li>Functions inside functions!</li>
+</ul>

@@ -1,0 +1,33 @@
+---
+layout: post
+title: 'Quickie: Solving "Bad class file magic" CAFEBABE on Android Studio'
+date: 2015-10-03 23:13:43.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- Programming
+- Tools
+tags:
+- android
+- android studio
+meta:
+  _edit_last: '38359561'
+  geo_public: '0'
+  _publicize_job_id: '15436467373'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>I bought a Macbook. Before this, I was always on Windows, and everything is unfamiliar territory.</p>
+<p>I tried to move on with my life, downloading my Bitbucket repo for my Android project and doing everything else involved in making this Mac a dev machine.</p>
+<p>My project built fine, but when I tried to run it, it failed to compile saying "bad class file magic (cafebabe)". This project is weird in that it has a dependency on a pure Java module, and the cafebabe error was occurring on that one.</p>
+<p>A bit of googling lead me to <a href="https://code.google.com/p/android/issues/detail?id=178476">this ticket</a>, which leads to <a href="http://stackoverflow.com/a/29631866/2018294">this answer</a> <strong>(solution number 2!)</strong>.</p>
+<p>Basically, the problem is that OS X now uses Java 8 by default, but the module is built on Java 7. You can specify the compile and target sdk by adding the following lines on your module's build.gradle:</p>
+<pre class="p1"><span class="s1">apply plugin: 'java'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7</span></pre>

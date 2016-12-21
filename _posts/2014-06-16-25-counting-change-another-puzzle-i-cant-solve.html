@@ -1,0 +1,58 @@
+---
+layout: post
+title: 'Counting Change: Another Puzzle I Can''t Solve!'
+date: 2014-06-16 22:52:39.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Programming
+tags:
+- Coursera
+- Scala
+meta:
+  _edit_last: '38359561'
+  geo_public: '0'
+  _oembed_bde6db7b5809990b255612f4b5deaf79: "{{unknown}}"
+  _oembed_7280df569dc0b3c0059968a53d04a9de: "{{unknown}}"
+  _oembed_6c30d3f4aedf32e8725c417166cbea0a: "{{unknown}}"
+  _oembed_9a415cf1e2dbf736bce904e1590a1012: "{{unknown}}"
+  _oembed_f0faa33b85d0018da43abf9aaeab4e87: "{{unknown}}"
+  _oembed_362ceac81dfb3a1e348a3d736cedf135: "{{unknown}}"
+  _publicize_job_id: '15436552926'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>Because this wordpress serves as a sort of notebook for me, here's an epitaph for a supposedly simple puzzle I can't wrap my head around.</p>
+<h1 id="exercise_3_counting_change">Exercise:</h1>
+<p>Write a recursive function that counts how many different ways you can make change for an amount, given a list of coin denominations. For example, there are 3 ways to give change for 4 if you have coins with denomiation 1 and 2: 1+1+1+1, 1+1+2, 2+2.</p>
+<p>Do this exercise by implementing the <code style="color:#dd1144;">countChange</code> function in <code style="color:#dd1144;">Main.scala</code>. This function takes an amount to change, and a list of unique denominations for the coins. Its signature is as follows:</p>
+<p>[code language="scala"]<br />
+def countChange(money: Int, coins: List[Int]): Int<br />
+[/code]</p>
+<p>Once again, you can make use of functions <code style="color:#dd1144;">isEmpty</code>, <code style="color:#dd1144;">head</code> and <code style="color:#dd1144;">tail</code> on the list of integers <code style="color:#dd1144;">coins</code>.</p>
+<p><strong>Hint</strong>: Think of the degenerate cases. How many ways can you give change for 0 CHF? How many ways can you give change for &gt;0 CHF, if you have no coins?</p>
+<p><strong>(Not) Solving It:</strong></p>
+<p>I was trying to solve it using a tree before finally giving up. I knew that a simple recursion was the solution (because duh, it's a recursion problem). I just couldn't understand how. Here are <a href="http://stackoverflow.com/questions/12629721/coin-change-algorithm-in-scala-using-recursion">some </a><a href="http://stackoverflow.com/questions/15859432/stackoverflowerror-for-coin-change-in-scala">results </a>I found, which I really can't wrap my head around until I found this:</p>
+<p>http://stackoverflow.com/a/4243925/1593883</p>
+<p>[code language="scala" firstline="10"]<br />
+int findCombinationsCount(int amount, int coins[]) {<br />
+    return findCombinationsCount(amount, coins, 0);<br />
+}</p>
+<p>int findCombinationsCount(int amount, int coins[], int checkFromIndex) {<br />
+    if (amount == 0)<br />
+        return 1;<br />
+    else if (amount &lt; 0 || coins.length == checkFromIndex)<br />
+        return 0;<br />
+    else {<br />
+        int withFirstCoin = findCombinationsCount(amount-coins[checkFromIndex], coins, checkFromIndex);<br />
+        int withoutFirstCoin = findCombinationsCount(amount, coins, checkFromIndex+1);<br />
+        return withFirstCoin + withoutFirstCoin;<br />
+    }<br />
+}<br />
+[/code]</p>
+<p>So apparently you recursively compute the change combinations with the first coin, and then add it with the recursive count of the change combinations without the first coin. It's that simple. Wow.</p>

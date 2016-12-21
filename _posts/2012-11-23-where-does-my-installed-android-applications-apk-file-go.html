@@ -1,0 +1,32 @@
+---
+layout: post
+title: Where Does My Installed Android Application's APK File Go?
+date: 2012-11-23 13:13:36.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android Cracking
+tags:
+- apk
+meta:
+  _edit_last: '38359561'
+  _publicize_job_id: '15436653821'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>You might want to edit something about an android app that you just installed, or share an APK file to your friend so that he can install it on his phone without going through the Play Store. So you're wondering, "Where are the apps installed on my phone?"</p>
+<p>Easy! It's in one of these three: /system/app, /data/app, or /mnt/asec</p>
+<p>[caption id="attachment_52" align="aligncenter" width="300"]<a href="http://noobgrammer.files.wordpress.com/2012/11/where.png"><img class="size-medium wp-image-52" title="where" alt="" src="{{ site.baseurl }}/assets/where.png?w=300" height="164" width="300" /></a> Three possibilites.[/caption]</p>
+<p>How do you know where to look?</p>
+<ul>
+<li>If it's a system app, well I guess that's obvious.</li>
+<li>If it's an app that you installed from the Play Store, most probably it's under /data/app.</li>
+<li>If it's installed on your sdcard, it gets installed somewhere else, then mounted under /mnt/asec.</li>
+</ul>
+<p>How do you know if an app is installed on your phone or on your sdcard? Go to Settings&gt;Applications&gt;Manage Applications&gt;All and select the app you want. Beside the "Clear data" button is either "Move to phone" which means it's on the sdcard, or "Move to SD card" which means it's currently on your phone memory.</p>
+<p>Not so easy: you need root to be able to access these folders, but hey. Why are you reading this if you're not yet rooted eh?</p>
