@@ -1,0 +1,65 @@
+---
+layout: post
+title: 'Meetup: Design for Performance with Martin Thompson'
+date: 2016-12-14 00:41:55.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Programming
+tags:
+- github
+- java
+- meet-up
+- open-source
+- performance
+meta:
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _publicize_job_id: '29948147335'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<pre>Location: Paypal Office, Singapore
+Date: 12 December 2016
+Topic: Design for Performance
+Speaker: Martin Thompson
+Video link: <a href="https://youtu.be/C70MLXX-ztU">https://youtu.be/C70MLXX-ztU</a></pre>
+<p>[caption id="attachment_600" align="alignnone" width="3225"]<img class="alignnone size-full wp-image-600" src="{{ site.baseurl }}/assets/img_0405.png" alt="IMG_0405.png" width="3225" height="1979" /> Martin Thompson. He's cool.[/caption]</p>
+<p>Last night, I went to my second Java User Group meet-up in Singapore. I didn't know who Martin Thompson is, and I didn't do any research on him before I went to his talk. If you want to, go ahead and google him. I'll wait.</p>
+<pre>PRO-TIP: Look up the speakers if you are planning to go to their talk.
+You get more insight into their previous work that way,
+and you might even learn more from their talk by doing some prior reading.</pre>
+<p>The talk was about performance, and how you can write Java code with performance in mind. I won't claim to have understood every point he raised, but here goes...</p>
+<h4>Response time is more important than latency</h4>
+<p style="padding-left:30px;">Latency + Processing Time = Response Time. The user perspective is more important than your system's.</p>
+<h4>Clean code is the first step to performant code</h4>
+<p style="padding-left:30px;">I'm paraphrasing here, but you know what I mean.</p>
+<h4>At the time that you need to use a resource, there is a likelihood that it is already in use</h4>
+<p style="padding-left:30px;">Queues will form. (I'm not sure this is a complete thought in my brain yet...)</p>
+<h4>More processors != better performance</h4>
+<p style="padding-left:30px;">There is a point where more processors leads to worse performance. There is a contention and a coherence penalty to be paid. He discusses the universal scalability law at <a href="https://youtu.be/C70MLXX-ztU?t=20m20s" target="_blank">the 20 minute mark in the video.</a></p>
+<h4>Use histograms instead of averages for measuring performance</h4>
+<p style="padding-left:30px;">By doing so, you see the interesting data like spikes. The mean, median, and mode of your system's response time is USELESS. If you use histograms, you will see trends and even outliers like a curious spike in the middle of a plateau.</p>
+<h4>Programmers put too much stock into DRY</h4>
+<p style="padding-left:30px;">So much so that they end up with dried out tightly coupled code. Which leads us to...</p>
+<h4>Another acronym: YAGNI</h4>
+<p style="padding-left:30px;"><a href="http://stackoverflow.com/questions/tagged/yagni" target="_blank">You ain't gonna need it</a>. I understand why DRY is followed blindly by programmers, I'm even guilty of it. DRY is easy to remember, and easy to implement. However, it tricks us into creating abstractions. So now you ask: Are abstractions bad? I'm sure many of us were taught otherwise. At <a href="https://youtu.be/C70MLXX-ztU?t=28m19s" target="_blank">around the 30 minute mark in the video</a>, Martin discusses the rules of abstraction. Two of my favorites are:</p>
+<ul>
+<li>You have to see at least 3 things that are the same before you begin abstracting</li>
+</ul>
+<p style="padding-left:60px;">Drink one beer for every case you've seen of an interface just for interface sake, having only ONE implementation class.</p>
+<ul>
+<li>Abstractions must pay for themselves</li>
+</ul>
+<p style="padding-left:60px;">And I think this is important because knowing that <strong>abstractions have a cost</strong> are going to make you think twice before you start doing it.</p>
+<h4>JSON and XML are not necessarily the best vectors for information</h4>
+<p style="padding-left:30px;">They're just more human-readable. You can have a more compact vector, you just need to build the tools to make them human-readable.</p>
+<hr />
+<p>I'm sure a lot of stuff in his talk just flew over my head. Having said that, I did learn some things, and I think that's the most important part of going to a talk: You learn some things, you learn <em>about</em> some other things, and you learn that you need to learn about some more things.</p>
+<p>By the way, if you haven't googled Martin Thompson by this point, he is the co-creator of Aeron which is a high-performance UDP messaging system, so he probably knows what he's talking about. Did I mention <a href="https://github.com/real-logic/Aeron">it's open source?</a></p>
+<p>If you're curious to learn more, I encourage you to watch the video or check out their github.</p>

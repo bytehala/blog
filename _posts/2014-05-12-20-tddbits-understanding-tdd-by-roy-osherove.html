@@ -1,0 +1,66 @@
+---
+layout: post
+title: 'TDDBits: Understanding TDD by Roy Osherove'
+date: 2014-05-12 20:29:24.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Programming
+tags:
+- TDD
+meta:
+  _edit_last: '38359561'
+  _publicize_job_id: '15436575260'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>I got to admit. It's been 3 days since I said that I'll be doing katas and yet I'm still at square zero.</p>
+<p>I have some progress with regards to TDD though. In my quest for the Holy TDD Grail I came upon a link to NDC 2009 where Roy Osherove* gave a talk about TDD. (Seriously, if you have the time, find the whole NDC 2009 compilation torrent and watch it. Uncle Bob's in it and there are some other speakers and topics that are pretty interesting for serious coders. Peter Provost is there as well.)</p>
+<p>[caption id="attachment_263" align="aligncenter" width="791"]<a href="http://noobgrammer.files.wordpress.com/2014/05/osherove.jpg"><img class="wp-image-263 size-full" src="{{ site.baseurl }}/assets/osherove.jpg" alt="Adam Sandler" width="791" height="336" /></a> Adam Sandler[/caption]</p>
+<p>Anyway, here are my notes from the talk:</p>
+<ul>
+<li>"In Unit Testing, a Unit is a small functional piece of code." I think he just means that Unit == function, basically.</li>
+<li>Do not write a lot of logic in your tests. The logic should be in the units.</li>
+<li>Think of tests as executable API documentation. That means that your tests should be descriptive of the units they're testing. I should be able to learn what a function does by only looking at the test.</li>
+<li>TDD is NOT Unit Testing. I had a hard time wrapping my head around this one, but in simpler terms TDD means writing the unit test before writing the code, and unit testing in itself is just testing a function whenever (could be before, during, or after writing the code).</li>
+<li>Don't test code that has NO LOGIC. Functions that have no if or switch, etc. don't need to be tested.</li>
+<li>Quantifiable. One of the benefits of TDD is that it makes your code quantifiable. If the function passes 50% of the test cases, then it is 50% done.</li>
+<li>People already do unit testing. This realization helped me warm up a bit to TDD. When I was in university, I would create classes that weren't really part of the final code just to test that my functions. I just didn't know that xUnit already existed as a unit testing framework.</li>
+<li>xUnit is a testing framework that has language-specific flavors like NUnit, JUnit, etc.</li>
+<li>Roy Osherove's convention for readable tests: NameofMethod_Scenario_ExpectedBehavior.
+<ul>
+<li>Example: sum_EmptyString_ReturnZero.</li>
+<li>No "Test" in the function name, because obviously.</li>
+</ul>
+</li>
+<li>Arrange. Act. Assert.
+<ul>
+<li>Arrange - Set up your class and unit.</li>
+<li>Act - Make the unit do something (call the unit with your parameters)</li>
+<li>Assert - Did the unit do as expected?</li>
+</ul>
+</li>
+<li>A Unit Test tests behavior. Behavior is something that you DO. Not something that you don't do.</li>
+<li>Some red flags that mean your test is bad and you should feel bad:
+<ul>
+<li>There are multiple Asserts in your test</li>
+<li>Comments!</li>
+<li>You find your test difficult to name.</li>
+</ul>
+</li>
+<li>3 phases of the TDD cycle
+<ul>
+<li>Make it FAIL - don't touch the code without a failing test. <strong>Yes, this is the hard part for cowboy coders.</strong> In the video, Roy Osherove asks the audience after his code passed the test "What do I do next?" he even put some whitespace in the source. This was a trick question of course, because he couldn't touch the code without a failing test. He had to write another failing test to move forward.</li>
+<li>Make it WORK - do this as simply as possible. Don't add additional functionality, or you will end up with MS Word, meaning there's lots of features nobody uses. They call this "feature creep"</li>
+<li>Make it BETTER - refactor the code, optimize it, but still don't add functionality.</li>
+</ul>
+</li>
+<li>Then there's this: Choose the simplest test that has actual functionality. I'm not sure I understood the example very much, but here it is: In the StringCalculator program, if you had to choose between testing a null String, an empty String, a single-element String, etc. you choose the empty String. He says, "I will not write something that sends invalid values for the first test."</li>
+</ul>
+<p>-----------<br />
+*Roy Osherove wrote some TDD and Unit Testing books, but he didn't invent it. Kent Beck did. I think.</p>

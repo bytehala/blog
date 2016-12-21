@@ -1,0 +1,38 @@
+---
+layout: post
+title: Initial Goals Update and Emulating AndEngine on Windows
+date: 2012-08-04 10:09:40.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Game programming
+tags:
+- andengine
+- android
+- eclipse
+- emulator
+- feeding frenzy
+- fishdish
+- windows
+meta:
+  _edit_last: '38359561'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>I've done my goals from post #3 and it looks like this:</p>
+<p>[caption id="attachment_31" align="aligncenter" width="540"]<a href="http://noobgrammer.files.wordpress.com/2012/08/bluestacks_screen.png"><img class="size-full wp-image-31" title="bluestacks_screen" src="{{ site.baseurl }}/assets/bluestacks_screen.png" alt="" width="540" height="326" /></a> It even runs on Windows![/caption]</p>
+<p>So there you can see the background, the texts, and there's already a bounding box. Yey!!!</p>
+<p>I've set the collision model for the fish to circle for now, I was just testing if it will not "bounce" on the bounding box because the square model was bouncing and it looks well, not good.</p>
+<p>The background looks different from the Android version, where gradients behave weirdly so I made an excuse for that:</p>
+<p>[caption id="attachment_32" align="aligncenter" width="540"]<a href="http://noobgrammer.files.wordpress.com/2012/08/2012-08-01-05-07-22.png"><img class="size-full wp-image-32" title="2012-08-01 05.07.22" src="{{ site.baseurl }}/assets/2012-08-01-05-07-22.png" alt="" width="540" height="324" /></a> It adds to the "charm". LOL[/caption]</p>
+<p>Hmmm weird. It looks even lower-res than that on my phone. But yeah, it adds to the charm. Also: I know that deeper parts of the ocean are darker but I chose this look because vignettes are all the rage these days, they bring focus to the center, aaand I need darker top parts for the HUD text. :)</p>
+<p><strong>Emulating on Windows</strong></p>
+<p>If you noticed on the first screenshot, it's a Windows 7 screenshot. I emulated it on <a href="http://www.bluestacks.com">Bluestacks</a>, as discussed on this <a href="http://www.andengine.org/forums/gles2/emulator-for-and-engine-gles2-t8597.html">AndEngine thread</a>. (I can't use my phone because it's my portable hotspot, and there's problems like draining faster than USB charging, overheat, lag, etc.)</p>
+<p>To launch your app from eclipse to the Bluestacks emulator, you have to type:</p>
+<blockquote><p>adb connect localhost:5555</p></blockquote>
+<p>After which, you just launch your app from eclipse as usual. Cool huh?</p>

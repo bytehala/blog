@@ -1,0 +1,49 @@
+---
+layout: post
+title: Down the Test-Driven Rabbit Hole
+date: 2014-04-05 12:30:24.000000000 +08:00
+type: post
+published: true
+status: publish
+categories:
+- Android
+- Programming
+tags:
+- android
+- Dependency Injection
+- java
+- Singleton
+- TDD
+meta:
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _edit_last: '38359561'
+  _publicize_job_id: '15436612159'
+author:
+  login: noobgrammer
+  email: lemuel.tito@gmail.com
+  display_name: bytehala
+  first_name: Lemuel
+  last_name: ''
+---
+<p>[caption id="" align="alignnone" width="350"]<img id="i-125" class="size-full wp-image" src="{{ site.baseurl }}/assets/alice_in_wonderland01.jpg?w=650" alt="Image" width="350" height="350" /> "My, my, there's a lot of singletons in there! How detestable!"[/caption]</p>
+<p>In January I ran across a blog titled "Programmers without TDD will be unemployable by 2022". Being a programmer, and not knowing what TDD is, I had every reason to panic.</p>
+<p>A month later Rocky, my coworker, saw in an internal company survey that I was interested in TDD as a topic. I alone. Rocky's a really nice and talented guy so he offered to teach me TDD "But it would be great if you can find others so we can make it a group session". So I did an office-wide blast of email and got my group, Rocky did the session, complete with homework... which nobody submitted and we all forgot about it and went our merry way. Until...<!--more--></p>
+<hr />
+<p>&nbsp;</p>
+<p>Last night, I came across <a title="The Most Common Android Libraries" href="https://www.quora.com/Can-you-give-a-list-of-popular-Android-libraries-that-are-commonly-used-to-build-applications" target="_blank">this quora</a>. I saw android-fu which looks outdated, AndroidAnnotations which (correct me if I'm wrong) requires your whole team to learn it so that you can use it at a functional level, and among the libraries, <strong>RoboJuice</strong> (correctly spelled RoboGuice, but I need to tell my brain to start saying RoboJuice so that's how I'll write it).</p>
+<p>The pitch for RoboJuice and AndroidAnnotations were the same: "Cleaner code, starting in onCreate"* but RoboJuice got me good. Maybe it was the number of Top Developer apps on <a title="RoboJuice on Github" href="https://github.com/roboguice/roboguice" target="_blank">their wiki page</a> that use it.</p>
+<p>I started reading the guides, and always ALWAYS injection was the topic. "What is this dependency injection?", I asked myself. I'm not gonna answer that here, but for you <a href="http://code.tutsplus.com/tutorials/dependency-injection-huh--net-26903" target="_blank">here's a good place to start</a>. As for myself, I took a detour through Quora and got <a href="http://www.quora.com/Jacob-Scott/Dependency-Injection" target="_blank">this list</a>. It's even got a link to the <a href="http://martinfowler.com/articles/injection.html" target="_blank">blog post by the god who coined the term</a>.</p>
+<hr />
+<p>&nbsp;</p>
+<p>Apparently dependency injection makes your code more testable. *Flashback to the part where I thought to myself "TDD is good to know, but kind of hard to do on a daily basis"* So knee me on the groin here, self! In retrospect, as I was brushing up on design patterns, I came across this article about the<a href="http://www.jroller.com/robwilliams/entry/brain_drain_in_enterprise_dev" target="_blank"> brain drain in enterprise dev</a>.</p>
+<p>Basically it says that enterprise devs are so outdated with respect to skills. Everybody loves lists, so here's me trying to be funny:</p>
+<p><strong>How to know you're interviewing an enterprise dev/zombie:</strong></p>
+<ul>
+<li>Instead of telling you even some anecdotal knowledge of the recent technologies/patterns/stuff <strong>they will just claim the ability to learn fast.</strong></li>
+<li><strong>"Singleton" is their favorite design pattern.</strong> When you ask them what the <a href="https://code.google.com/p/google-singleton-detector/wiki/WhySingletonsAreControversial">fundamental problem is with singletons</a>, they will not know. (Now do you GET THE PICTURE? *nudge nudge* I'm talking about the caption on the Alice picture.)</li>
+</ul>
+<p>I digress. So here I am not worrying about TDD, trying to learn about Dependency Injection and *BOOM* they're brothers.</p>
+<hr />
+<p>&nbsp;</p>
+<p>Now I'm watching the youtube video from that Quora list, willing to suck it up be a man. A programmer man, who's willing to admit he's just learning about TDD. Because all roads lead to TDD. Fuck.</p>
